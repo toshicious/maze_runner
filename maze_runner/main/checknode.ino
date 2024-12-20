@@ -7,15 +7,12 @@ void checknode ()
   e = 0;
   paths = 0;
 
-  // checks whethere bot is on node and the number of exits possible
-
-
-  if (analogRead(4) < threshold) r = 1;
-  if (analogRead(0) < threshold) l = 1;
-  if ((analogRead(0) > threshold && (analogRead(4) > threshold) && (analogRead(2) > threshold))) {
+  if (analogRead(4) > threshold) r = 1;
+  if (analogRead(0) > threshold) l = 1;
+  if ((analogRead(0) < threshold && (analogRead(4) < threshold) && (analogRead(2) < threshold))) {
     u = 1;
   }
-  if ((analogRead(2) < threshold) && (analogRead(3) < threshold) && (analogRead(4) < threshold)) {
+  if ((analogRead(2) > threshold) && (analogRead(3) > threshold) && (analogRead(4) > threshold)) {
     e = 1;
   }
 
@@ -37,7 +34,7 @@ void checknode ()
       PID();
       if (analogRead (2) < threshold) s = 1;
     }
-    if ((e == 1) && (analogRead(3) < threshold) && (analogRead(4) < threshold) && (analogRead(2) < threshold)) e = 2;
+    if ((e == 1) && (analogRead(3) > threshold) && (analogRead(4) > threshold) && (analogRead(2) > threshold)) e = 2;
   }
   if (u == 1)
   {
@@ -46,7 +43,5 @@ void checknode ()
       botinchforward ();
     }
   }
-
   paths = l + s + r;
-
 }

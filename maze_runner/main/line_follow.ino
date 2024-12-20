@@ -1,12 +1,11 @@
 void linefollow()
 { 
   paths = 0;
-  while ((analogRead(0) > threshold ) && (analogRead(4) > threshold ) && (analogRead(2) < threshold || analogRead(1) < threshold || analogRead(3) < threshold))
+  while ((analogRead(0) > threshold ) && (analogRead(4) > threshold ) && (analogRead(2) > threshold || analogRead(1) > threshold || analogRead(3) > threshold))
   {
     lfspeed = 70;
     PID();
   }
-  lightsoff();
 }
 void PID()
 {

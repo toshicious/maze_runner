@@ -8,7 +8,7 @@ void botleft ()
   analogWrite(9, turnspeed1);
   analogWrite(10, turnspeed1);
   delay(100);
-  while (analogRead(1) > threshold)
+  while (analogRead(1) < threshold)
   {
     digitalWrite(7, HIGH);
     digitalWrite(8, LOW);
@@ -27,7 +27,7 @@ void botright ()
   analogWrite(9, turnspeed1);
   analogWrite(10, turnspeed1);
   delay(100);
-  while (analogRead(3) > threshold)
+  while (analogRead(3) < threshold)
   {
     digitalWrite(7, LOW);
     digitalWrite(8, HIGH);
@@ -69,7 +69,7 @@ void botuturn ()
   analogWrite(9, (lfspeed * 0.7 * 0.8));
   analogWrite(10, lfspeed * 0.7);
   delay(250);
-  while (analogRead(1) > threshold)
+  while (analogRead(1) < threshold)
   {
     digitalWrite(7, HIGH);
     digitalWrite(8, LOW);

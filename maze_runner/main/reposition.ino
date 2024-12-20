@@ -4,14 +4,13 @@ void reposition()
   {
     str += 'E';
     endFound = 1;
-    red();
     botstop();
     delay(2000);
   }
   else if (r == 1)
   {
     if (paths > 1) str += 'R';
-    botright(); //take left
+    botright(); //take right
   }
   
   else if (s == 1)
@@ -21,14 +20,12 @@ void reposition()
   else if (l == 1)
   {
     if (paths > 1) str += 'L';
-    botleft(); //take right
+    botleft(); //take left
   }
 
   else if (u == 1)
   {
     str += 'U';
-    botuturn(); //take left
+    botuturn(); //take U-turn
   }
-  lightsoff();
-
 }

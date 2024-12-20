@@ -1,15 +1,7 @@
-/*MR Dir- 7
-   MR PWM- 9
-   ML Dir- 8
-   ML PWM- 10
-   RGB- 6,5,3
-
-   Line sensor on A0,A1,A2,A3,A4
-   A0-left & A4 - right
-   Battery voltage check on A7
-*/
-
-const int startButton = 11;
+//PWM 1 - 9
+//PWM 2 - 10
+//Motor dir 1 - 7
+//Motor dir 2 - 8
 
 bool l = 0;
 bool r = 0;
@@ -20,10 +12,8 @@ int paths = 0;
 
 bool endFound = 0;
 
-int blackValue = 900;
-int whiteValue = 100;
 int threshold = 650;
-//int threshold = (blackValue + whiteValue) * 0.5;
+
 int FT = 50;
 int P, D, I, previousError, PIDvalue, error;
 int lsp = 100;
@@ -38,18 +28,12 @@ String str;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(startButton, INPUT_PULLUP);
+  //pinMode(startButton, INPUT_PULLUP);
   pinMode (7, OUTPUT);
   pinMode (8, OUTPUT);
-  pinMode (3, OUTPUT); //blue
-  pinMode (5, OUTPUT); //green
-  pinMode (6, OUTPUT); //red
 }
 
 void loop() {
-  while (digitalRead(startButton) == 1)
-  { //Do nothing while waiting for button press
-  }
   delay(300);
 
   while (endFound == 0)
@@ -75,13 +59,8 @@ void loop() {
   }
   int endpos = str.indexOf('E');
 
-  while (digitalRead(startButton) == 1)
-  { //Do nothing while waiting for button press
-  }
+  delay(2000);
   
-  lightsoff();
-  delay(300);
-
   for (int i = 0; i <= endpos; i++)
   {
     char node = str.charAt(i);
@@ -119,7 +98,6 @@ void loop() {
         {
           botinchforward ();
         }
-        red();
         botstop();
         delay(1000);
         break;
