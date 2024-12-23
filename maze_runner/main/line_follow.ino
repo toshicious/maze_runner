@@ -1,5 +1,7 @@
 void linefollow()
 {
+  previousError = 0;
+  error = 0;
   paths = 0;
   while ( (analogRead(0) < threshold && analogRead(7) < threshold) && (analogRead(1) > threshold || analogRead(2) > threshold || analogRead(3) > threshold || analogRead(4) > threshold || analogRead(5) > threshold || analogRead(6) > threshold))
   {
@@ -7,6 +9,8 @@ void linefollow()
   }
   digitalWrite(ain1, 0);
   digitalWrite(ain2, 0);
+  digitalWrite(bin1, 0);
+  digitalWrite(bin2, 0);
 }
 void PID()
 {
@@ -23,14 +27,14 @@ void PID()
   lsp = lfspeed - PIDvalue;
   rsp = rfspeed + PIDvalue;
 
-  if (lsp > 180) {
-    lsp = 180;
+  if (lsp > 195) {
+    lsp = 195;
   }
 if (lsp < 0) {
     lsp = 0;
   }
-  if (rsp > 180) {
-    rsp = 180;
+  if (rsp > 195) {
+    rsp = 195;
   }
   if (rsp < 0) {
     rsp = 0;
@@ -38,6 +42,8 @@ if (lsp < 0) {
   digitalWrite(stby, HIGH);
   digitalWrite(ain1, HIGH);
   digitalWrite(bin1, HIGH);
+  digitalWrite(ain2, LOW);
+  digitalWrite(bin2, LOW);
   analogWrite(pwma, lsp);
   analogWrite(pwmb,rsp);
 }

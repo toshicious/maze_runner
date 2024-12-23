@@ -16,24 +16,24 @@ int paths = 0;
 bool endFound = 0;
 
 int threshold = 100;
-int maxspeed = 120;
+int maxspeed = 1;
 
-int FT = 0;
+int FT = 30;
 int P, D, I, previousError, PIDvalue, error;
 int lsp = 80;
 int rsp = 80;
-int lfspeed = 120;
-int rfspeed = 120;
+int lfspeed = 130;
+int rfspeed = 130;
 int turnspeed;
 
-float Kp = 0.09;
+float Kp = 0.1;
 float Kd = 0.0;
 float Ki = 0 ;
 
 String str;
 
 void setup() {
-//  /Serial.begin(9600);
+//  Serial.begin(9600);
   pinMode(pwma, OUTPUT);
   pinMode(pwmb, OUTPUT);
   pinMode(ain1, OUTPUT);
