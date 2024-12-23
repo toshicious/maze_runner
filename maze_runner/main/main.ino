@@ -15,15 +15,16 @@ int paths = 0;
 
 bool endFound = 0;
 
-int threshold = 650;
+int threshold = 70;
 int maxspeed = 120;
 
 int FT = 50;
 int P, D, I, previousError, PIDvalue, error;
-int lsp = 100;
-int rsp = 100;
+int lsp = 80;
+int rsp = 80;
 int lfspeed = 60;
 int turnspeed;
+
 float Kp = 0.04;
 float Kd = 0.05;
 float Ki = 0 ;
@@ -39,6 +40,8 @@ void setup() {
   pinMode(bin1, OUTPUT);
   pinMode(bin2, OUTPUT);
   pinMode(stby, OUTPUT);
+  delay(1000);
+  calibrate();
 }
 
 void loop() {
