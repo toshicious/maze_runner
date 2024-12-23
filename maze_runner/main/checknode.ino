@@ -7,12 +7,12 @@ void checknode ()
   e = 0;
   paths = 0;
 
-  if (analogRead(4) > threshold) r = 1;
+  if (analogRead(7) > threshold) r = 1;
   if (analogRead(0) > threshold) l = 1;
-  if ((analogRead(0) < threshold && (analogRead(4) < threshold) && (analogRead(2) < threshold))) {
+  if ((analogRead(2) < threshold && (analogRead(3) < threshold) && (analogRead(4) < threshold)) && (analogRead(5) < threshold)) {
     u = 1;
   }
-  if ((analogRead(2) > threshold) && (analogRead(3) > threshold) && (analogRead(4) > threshold)) {
+  if ((analogRead(2) > threshold) && (analogRead(3) > threshold) && (analogRead(4) > threshold) && (analogRead(5) > threshold)) {
     e = 1;
   }
 
@@ -21,10 +21,10 @@ void checknode ()
     for (int i = 0; i < FT; i++)
     {
       //botinchforward ();
-      lfspeed = 90;
+      lfspeed = 80;
       PID();
-      if (analogRead (4) < threshold) r = 1;
-      if (analogRead (0) < threshold) l = 1;
+      if (analogRead (7) > threshold) r = 1;
+      if (analogRead (0) > threshold) l = 1;
     }
 
     for (int i = 0; i < FT; i++)
@@ -32,9 +32,9 @@ void checknode ()
       //botinchforward ();
       lfspeed = 90;
       PID();
-      if (analogRead (2) < threshold) s = 1;
+      if (analogRead (3) > threshold || (analogRead(4) > threshold)) s = 1;
     }
-    if ((e == 1) && (analogRead(3) > threshold) && (analogRead(4) > threshold) && (analogRead(2) > threshold)) e = 2;
+    if ((e == 1) && (analogRead(2) > threshold) && (analogRead(3) > threshold) && (analogRead(4) > threshold && (analogRead(5) > threshold))) e = 2;
   }
   if (u == 1)
   {
