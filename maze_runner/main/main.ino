@@ -16,17 +16,17 @@ int paths = 0;
 bool endFound = 0;
 
 int threshold = 100;
-int maxspeed = 1;
+int maxspeed = 90;
 
-int FT = 30;
+int FT = 25;
 int P, D, I, previousError, PIDvalue, error;
 int lsp = 40;
 int rsp = 40;
-int lfspeed = 40;
-int rfspeed = 40;
+int lfspeed = 60;
+int rfspeed = 60;
 int turnspeed;
 
-float Kp = 0.025;
+float Kp = 0.037;
 float Kd = 0.0;
 float Ki = 0 ;
 
@@ -58,60 +58,59 @@ void loop() {
     reposition ();
   }
 
-//  for (int x = 0; x < 10; x++)
-//  {
-//    str.replace("RURUS", "U");
-//    str.replace("RUSUR", "U");
-//    str.replace("RUR", "S");
-//    str.replace("SUR", "L");
-//    str.replace("RUS", "L");
-//    str.replace("RUL", "U");
-//    str.replace("LUR", "U");
-//  }
-//  int/ endpos = str.indexOf('E');
+  for (int x = 0; x < 10; x++)
+  {
+    str.replace("RURUS", "U");
+    str.replace("RUSUR", "U");
+    str.replace("RUR", "S");
+    str.replace("SUR", "L");
+    str.replace("RUS", "L");
+    str.replace("RUL", "U");
+    str.replace("LUR", "U");
+  }
+  int endpos = str.indexOf('E');
 
   
-//  for (int i = 0; i <= endpos; i++)
-//  {
-//    char node = str.charAt(i);
-//    paths = 0;
-//    while (paths < 2)
-//    {
-//      linefollow();
-//      checknode();
-//      if (paths == 1)
-//      {
-//        botstop();
-//        delay(75);
-//        reposition();
-//      }
-//    }
-//    switch (node)
-//    {
-//      case 'L':
-//        botstop();
-//        delay(75);
-//        botleft();
-//        break;
-//
-//      case 'S':
-//        break;
-//
-//      case 'R':
-//        botstop();
-//        delay(75);
-//        botright();
-//        break;
-//
-//      case 'E':
-//        for (int i = 0; i < 10; i++)
-//        {
-//          botinchforward ();
-//        }
-//        botstop();
-//        delay(1000);
-//        break;
-//    }//_________end of switch
-//  }//_________end of for loop
+  for (int i = 0; i <= endpos; i++)
+  {
+    char node = str.charAt(i);
+    paths = 0;
+    while (paths < 2)
+    {
+      linefollow();
+      checknode();
+      if (paths == 1)
+      {
+        botstop();
+        delay(75);
+        reposition();
+      }
+    }
+    switch (node)
+    {
+      case 'L':
+        botstop();
+        delay(75);
+        botleft();
+        break;
 
+      case 'S':
+        break;
+
+      case 'R':
+        botstop();
+        delay(75);
+        botright();
+        break;
+
+      case 'E':
+        for (int i = 0; i < 10; i++)
+        {
+          botinchforward ();
+        }
+        botstop();
+        delay(1000);
+        break;
+    }//_________end of switch
+  }//_________end of for loop
 }

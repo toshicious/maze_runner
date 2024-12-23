@@ -22,8 +22,8 @@ void checknode ()
     {
       //botinchforward ();
       PID();
-      if (analogRead (7) > threshold) r = 1;
-      if (analogRead (0) > threshold) l = 1;
+      if (analogRead (0) > threshold) r = 1;
+      if (analogRead (7) > threshold) l = 1;
     }
 
     for (int i = 0; i < FT; i++)
@@ -34,6 +34,7 @@ void checknode ()
     }
     if ((e == 1) && (analogRead(2) > threshold) && (analogRead(3) > threshold) && (analogRead(4) > threshold && (analogRead(5) > threshold))) e = 2;
   }
+  
 //  if (u == 1)
 //  {
 //    for (int i = 0; i < 3; i++)

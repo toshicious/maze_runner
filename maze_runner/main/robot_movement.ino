@@ -1,14 +1,12 @@
-int turnspeed1 = 40;
-int turnspeed2 = 40;
+int turnspeed1 = 60;
+int turnspeed2 = 60;
 
 void botleft ()
 {
   digitalWrite(ain1, HIGH);
-  digitalWrite(ain2, LOW);
   digitalWrite(bin1, LOW);
-  digitalWrite(bin2, LOW);
   analogWrite(pwma, turnspeed1);
-  analogWrite(pwmb, turnspeed1);
+  analogWrite(pwmb, turnspeed);
   delay(50);
   while (analogRead(5) < threshold)
   {
@@ -63,6 +61,7 @@ void botstop ()
   digitalWrite(ain2, LOW);
   digitalWrite(bin1, LOW);
   digitalWrite(bin2, LOW);
+  
   analogWrite(pwma, 0);
   analogWrite(pwmb, 0);
 }
@@ -74,7 +73,7 @@ void botuturn ()
   digitalWrite(bin2, LOW);
 
   analogWrite(pwma, turnspeed2);
-  analogWrite(pwmb, turnspeed2);
+  analogWrite(pwmb, turnspeed2 * 1.5);
   delay(50);
   
   while (analogRead(5) < threshold)

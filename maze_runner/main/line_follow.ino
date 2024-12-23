@@ -27,14 +27,14 @@ void PID()
   lsp = lfspeed - PIDvalue;
   rsp = rfspeed + PIDvalue;
 
-  if (lsp > 60) {
-    lsp = 60;
+  if (lsp > maxspeed) {
+    lsp = maxspeed;
   }
 if (lsp < 0) {
     lsp = 0;
   }
-  if (rsp > 60) {
-    rsp = 60;
+  if (rsp > maxspeed) {
+    rsp = maxspeed;
   }
   if (rsp < 0) {
     rsp = 0;
@@ -44,6 +44,7 @@ if (lsp < 0) {
   digitalWrite(bin1, HIGH);
   digitalWrite(ain2, LOW);
   digitalWrite(bin2, LOW);
+  
   analogWrite(pwma, lsp);
   analogWrite(pwmb,rsp);
 }
