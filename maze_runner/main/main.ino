@@ -1,9 +1,9 @@
-#define pwma 3
-#define pwmb 5
-#define ain1 6
-#define ain2 7
-#define bin1 9
-#define bin2 8
+#define pwma 3 // RIGHT MOTOR 
+#define pwmb 5 // LEFT MOTOR
+#define ain1 6 // RIGHT FWD
+#define ain2 7 // RIGHT BKWD
+#define bin1 9 // LEFT FWD
+#define bin2 8 // LEFT BKWD
 #define stby 4
 
 bool l = 0;
@@ -20,13 +20,13 @@ int maxspeed = 1;
 
 int FT = 30;
 int P, D, I, previousError, PIDvalue, error;
-int lsp = 80;
-int rsp = 80;
-int lfspeed = 130;
-int rfspeed = 130;
+int lsp = 40;
+int rsp = 40;
+int lfspeed = 40;
+int rfspeed = 40;
 int turnspeed;
 
-float Kp = 0.1;
+float Kp = 0.025;
 float Kd = 0.0;
 float Ki = 0 ;
 
@@ -41,8 +41,8 @@ void setup() {
   pinMode(bin1, OUTPUT);
   pinMode(bin2, OUTPUT);
   pinMode(stby, OUTPUT);
-//  delay(100/0);
-//  calibrate(/);
+//  delay(1000);
+//  calibrate();
 }
 
 void loop() {

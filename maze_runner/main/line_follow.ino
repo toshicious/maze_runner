@@ -27,14 +27,14 @@ void PID()
   lsp = lfspeed - PIDvalue;
   rsp = rfspeed + PIDvalue;
 
-  if (lsp > 195) {
-    lsp = 195;
+  if (lsp > 60) {
+    lsp = 60;
   }
 if (lsp < 0) {
     lsp = 0;
   }
-  if (rsp > 195) {
-    rsp = 195;
+  if (rsp > 60) {
+    rsp = 60;
   }
   if (rsp < 0) {
     rsp = 0;

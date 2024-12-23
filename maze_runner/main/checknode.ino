@@ -34,12 +34,12 @@ void checknode ()
     }
     if ((e == 1) && (analogRead(2) > threshold) && (analogRead(3) > threshold) && (analogRead(4) > threshold && (analogRead(5) > threshold))) e = 2;
   }
-  if (u == 1)
-  {
-    for (int i = 0; i < 3; i++)
-    {
-      botinchforward ();
-    }
-  }
+//  if (u == 1)
+//  {
+//    for (int i = 0; i < 3; i++)
+//    {
+//      botinchforward ();
+//    }
+//  }
   paths = l + s + r;
 }
