@@ -27,6 +27,18 @@ void calibrate()
     }
   analogWrite(pwma, 0);
   analogWrite(pwmb, 0);
+
+  int _min = 1000;
+  int _max = 0;
+  for(int i=0; i<8; i++)
+  {
+    if(max[i]>_max)
+    _max = max[i];
+
+    if(min[i]<_min)
+    _min = min[i];
+  }
+  threshold = (_min + _max)*0.5*0.5;
 }
 
 //void setup() {

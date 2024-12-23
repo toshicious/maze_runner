@@ -2,8 +2,8 @@
 #define pwmb 5
 #define ain1 6
 #define ain2 7
-#define bin1 8
-#define bin2 9
+#define bin1 9
+#define bin2 8
 #define stby 4
 
 bool l = 0;
@@ -15,18 +15,19 @@ int paths = 0;
 
 bool endFound = 0;
 
-int threshold = 70;
+int threshold = 100;
 int maxspeed = 120;
 
-int FT = 50;
+int FT = 0;
 int P, D, I, previousError, PIDvalue, error;
 int lsp = 80;
 int rsp = 80;
-int lfspeed = 60;
+int lfspeed = 120;
+int rfspeed = 120;
 int turnspeed;
 
-float Kp = 0.04;
-float Kd = 0.05;
+float Kp = 0.09;
+float Kd = 0.0;
 float Ki = 0 ;
 
 String str;
@@ -40,12 +41,11 @@ void setup() {
   pinMode(bin1, OUTPUT);
   pinMode(bin2, OUTPUT);
   pinMode(stby, OUTPUT);
-  delay(1000);
-  calibrate();
+//  delay(100/0);
+//  calibrate(/);
 }
 
 void loop() {
-  delay(3000);
 
   while (endFound == 0)
   {
@@ -70,7 +70,6 @@ void loop() {
 //  }
 //  int/ endpos = str.indexOf('E');
 
-  delay(2000);
   
 //  for (int i = 0; i <= endpos; i++)
 //  {

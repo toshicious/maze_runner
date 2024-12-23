@@ -7,8 +7,8 @@ void checknode ()
   e = 0;
   paths = 0;
 
-  if (analogRead(7) > threshold) r = 1;
-  if (analogRead(0) > threshold) l = 1;
+  if (analogRead(0) > threshold) r = 1;
+  if (analogRead(7) > threshold) l = 1;
   if ((analogRead(2) < threshold && (analogRead(3) < threshold) && (analogRead(4) < threshold)) && (analogRead(5) < threshold)) {
     u = 1;
   }
@@ -30,7 +30,7 @@ void checknode ()
     for (int i = 0; i < FT; i++)
     {
       //botinchforward ();
-      lfspeed = 90;
+      lfspeed = 80;
       PID();
       if (analogRead (3) > threshold || (analogRead(4) > threshold)) s = 1;
     }
